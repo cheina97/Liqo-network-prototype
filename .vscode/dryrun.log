@@ -1,0 +1,5 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/cheina/Documents/liqo/network/netns'
+./clean.sh ; ./init.sh
+make: Leaving directory '/home/cheina/Documents/liqo/network/netns'
+ 
