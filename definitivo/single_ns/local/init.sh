@@ -246,7 +246,7 @@ c2-gw iptables -t mangle -A PREROUTING -d "${GW1_NATCIDR_POOL}" -j MARK --set-ma
 #c3-gw iptables -t mangle -A PREROUTING -d "${GW1_NATCIDR_POOL}" -j MARK --set-mark 21
 #c3-gw iptables -t mangle -A PREROUTING -d "${GW2_NATCIDR_POOL}" -j MARK --set-mark 22
 
-//TODO agggiungo interfacce in uscita
+#TODO agggiungo interfacce in uscita
 c1-gw iptables -t nat -A PREROUTING -d "${GW1_NATCIDR_POOL}" -j NETMAP --to "${C2_PODCIDR}"
 #c1-gw iptables -t nat -A PREROUTING -d "${GW2_NATCIDR_POOL}" -j NETMAP --to "${C3_PODCIDR}"
 c2-gw iptables -t nat -A PREROUTING -d "${GW1_NATCIDR_POOL}" -j NETMAP --to "${C1_PODCIDR}"
@@ -254,7 +254,7 @@ c2-gw iptables -t nat -A PREROUTING -d "${GW1_NATCIDR_POOL}" -j NETMAP --to "${C
 #c3-gw iptables -t nat -A PREROUTING -d "${GW1_NATCIDR_POOL}" -j NETMAP --to "${C2_PODCIDR}"
 #c3-gw iptables -t nat -A PREROUTING -d "${GW2_NATCIDR_POOL}" -j NETMAP --to "${C1_PODCIDR}"
 
-//TODO agggiungo interfacce in ingresso
+#TODO agggiungo interfacce in ingresso
 c1-gw iptables -t nat -A POSTROUTING -o c1-gw1-eth -j NETMAP --to "${GW1_NATCIDR_POOL}"
 #c1-gw iptables -t nat -A POSTROUTING -o c1-gw2-eth -j NETMAP --to "${GW2_NATCIDR_POOL}"
 c2-gw iptables -t nat -A POSTROUTING -o c2-gw1-eth -j NETMAP --to "${GW1_NATCIDR_POOL}"
